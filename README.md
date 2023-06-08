@@ -26,7 +26,10 @@ No documentation has been created yet.
 - <https://github.com/validevgb>
 
 **Lina Bartels**
+- <https://github.com/linabartels>
 
 **Leonie Müller**
+- <https://github.com/leonie-mueller>
 
 **Carolin Egger**
+- <https://github.com/caro-e>
