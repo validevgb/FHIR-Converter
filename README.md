@@ -5,21 +5,16 @@ Freiwilliges Projekt im Fach Grundlagen von eHealth an der Hochschule Kempten
 
 - [Features](#features)
 - [Quick start](#quick-start)
-- [Documentation](#documentation)
 - [Creators](#creators)
 
 ## Features
-- convert HL7v2 Messages to HL7 FHIR standard
-- fetch and interact with patient data from a server (GET, POST, PUT)
+- reading HL7v2 Messages with Python and send the resulting information to https://hapi.fhir.org/baseR4/ (public FHIR Server)
+- fetch and interact with patient data from a public FHIR server (GET, POST, PUT) with GUI
 
 ## Quick start
 
 - To be continued...
 - To see the data copy the follwing link in your browser: "example.fhir.com/patients/12345"
-
-## Documentation
-
-No documentation has been created yet.
 
 ## Creators
 **Valentin Gutberlet**
