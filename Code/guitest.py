@@ -30,7 +30,7 @@ def update():
     vorname = vorname_entry.get()
     adresse = adresse_entry.get()
     telefon = telefon_entry.get()
-    geschlecht = geschlecht_var.get()
+    #geschlecht = geschlecht_var.get()
     geburtsdatum = geburtsdatum_entry.get()
     verheiratet = verheiratet_var.get()
 
@@ -42,7 +42,7 @@ def submit():
     vorname = vorname_entry.get()
     adresse = adresse_entry.get()
     telefon = telefon_entry.get()
-    geschlecht = geschlecht_var.get()
+    geschlecht = geschlecht_wert.get()
     geburtsdatum = geburtsdatum_entry.get()
     verheiratet = verheiratet_var.get()
 
@@ -91,9 +91,9 @@ def submit():
     print("Verheiratet:", verheiratet)
 
 window = tk.Tk()
-window.title("Personeninformationen")
+window.title("Patientendaten")
 
-fetch_button = tk.Button(window, text="Fetch patient", command=fetch)
+fetch_button = tk.Button(window, text="Patient abrufen", command=fetch)
 fetch_button.pack()
 # ID
 id_label = tk.Label(window, text="ID:")
@@ -132,10 +132,11 @@ telefon_entry.pack()
 # Geschlecht
 geschlecht_label = tk.Label(window, text="Geschlecht:")
 geschlecht_label.pack()
-geschlecht_var = tk.StringVar()
-geschlecht_radiobutton1 = tk.Radiobutton(window, text="Männlich", variable=geschlecht_var, value="männlich")
+geschlecht_wert = tk.StringVar()
+geschlecht_wert.set("männlich")
+geschlecht_radiobutton1 = tk.Radiobutton(window, text="Männlich", variable=geschlecht_wert, value="männlich")
 geschlecht_radiobutton1.pack()
-geschlecht_radiobutton2 = tk.Radiobutton(window, text="Weiblich", variable=geschlecht_var, value="weiblich")
+geschlecht_radiobutton2 = tk.Radiobutton(window, text="Weiblich", variable=geschlecht_wert, value="weiblich")
 geschlecht_radiobutton2.pack()
 
 # Geburtsdatum
