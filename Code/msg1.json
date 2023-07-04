@@ -1,70 +1,81 @@
-// MSH
-{
-  "resourceType" : "MessageHeader",
-  "id" : "1cbdfb97-5859-48a4-8301-d54eab818d68",
-  "destination" : [{
-    "receiver" : {
-      "reference" : "Mirth"
-    }
-  }],
-  "sender" : {
-    "reference" : "MCC"
-  },
-  "focus" : [{
-    "reference" : "Patient/122600 "
-  }]
-}
-
-// Patient
-{
-    "resourceType" : "Patient",
-    "id" : "122600"
-    "name" : [{
-      "family" : "Schorsten",
-      "given" : ["Inge"]
-    }],
-  "telecom" : [{
-      "use" : "home"
-    },
-    {
-      "system" : "phone",
-      "value" : "5555 6666"
-    }
-    ],
-    "gender" : "female",
-    "birthDate" : "1955-02-01",
-    "address" : [{
-      "line" : ["34 Bahnhof St"],
-      "city" : "Kempten",
-      "state" : "DE",
-      "postalCode" : "87437"
-    }],
-    "contact" : [{
-      "relationship" : [{
-        "coding" : [{
-          "system" : "http://terminology.hl7.org/CodeSystem/v2-0131",
-          "code" : "G"
-        }]
-      }],
-      "name" : {
-        "family" : "Schorsten",
-        "given" : ["Hubert"]
-      },
-      "gender" : "male"
-  }]
-  }
-
-  //Location
+[
   {
-    "resourceType" : "Location",
-    "id" : "1",
-    "identifier" : [{
-      "value" : " ST-11 FA-ACH "
-    }],
-    "name" : "ST-11 FA-ACH",
-  }
-
-  //Encounter
+    "resourceType": "MessageHeader",
+    "id": "1cbdfb97-5859-48a4-8301-d54eab818d68",
+    "destination": [
+      {
+        "receiver": {
+          "reference": "Mirth"
+        }
+      }
+    ],
+    "sender": {
+      "reference": "MCC"
+    },
+    "focus": [
+      {
+        "reference": "Patient/122600 "
+      }
+    ]
+  },
+  {
+    "resourceType": "Patient",
+    "id": "122600",
+    "name": [
+      {
+        "family": "Schorsten",
+        "given": ["Inge"]
+      }
+    ],
+    "telecom": [
+      {
+        "use": "home"
+      },
+      {
+        "system": "phone",
+        "value": "5555 6666"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1955-02-01",
+    "address": [
+      {
+        "line": ["34 Bahnhof St"],
+        "city": "Kempten",
+        "state": "DE",
+        "postalCode": "87437"
+      }
+    ],
+    "contact": [
+      {
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+                "code": "G"
+              }
+            ]
+          }
+        ],
+        "name": {
+          "family": "Schorsten",
+          "given": ["Hubert"]
+        },
+        "gender": "male"
+      }
+    ]
+  },
+  {
+    "resourceType": "Location",
+    "id": "1",
+    "identifier": [
+      {
+        "value": " ST-11 FA-ACH "
+      }
+    ],
+    "name": "ST-11 FA-ACH"
+  },
   {
     "resourceType": "Encounter",
     "id": "example",
@@ -76,56 +87,63 @@
     },
     "subject": {
       "reference": "Patient/122600"
-    }, 
-    "subjectStatus" : {
-      "coding" : [{
-        "system" : "http://terminology.hl7.org/CodeSystem/encounter-subject-status",
-        "code" : "arrived"
-      }]
     },
-  }
-
-  //Versicherung
+    "subjectStatus": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/encounter-subject-status",
+          "code": "arrived"
+        }
+      ]
+    }
+  },
   {
-    "resourceType" : "Organization",
-    "id" : "2",
-    "identifier" : [{
-    "system" : "http://fhir.de/sid/arge-ik/iknr",
-    "value" : "0009116769"
-    }],
-    "name" : "AOK Kempten",
-    "address": [ {
-    "line": [ "Postfach 1240" ],
-    "city": "Kempten",
-    "postalCode": "0",
-    }]
+    "resourceType": "Organization",
+    "id": "2",
+    "identifier": [
+      {
+        "system": "http://fhir.de/sid/arge-ik/iknr",
+        "value": "0009116769"
+      }
+    ],
+    "name": "AOK Kempten",
+    "address": [
+      {
+        "line": ["Postfach 1240"],
+        "city": "Kempten",
+        "postalCode": "0"
+      }
+    ]
+  },
+  {
+    "resourceType": "Coverage",
+    "id": "9876B1",
+    "status": "active",
+    "kind": "insurance",
+    "policyHolder": {
+      "reference": "Organization/2"
+    },
+    "subscriber": {
+      "reference": "Patient/122600"
+    },
+    "beneficiary": {
+      "reference": "Patient/122600"
+    },
+    "insurer": {
+      "reference": "Organization/2"
+    },
+    "class": {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "plan"
+          }
+        ]
+      },
+      "value": {
+        "value": "5000374"
+      }
     }
-    
-    {
-        "resourceType" : "Coverage",
-        "id" : "9876B1",
-        "status" : "active",
-        "kind" : "insurance",
-        "policyHolder" : {
-              "reference" : "Organization/2"
-        },
-        "subscriber" : {
-            "reference" : "Patient/122600"
-        },
-        "beneficiary" : {
-            "reference" : "Patient/122600"
-        },
-        "insurer" : {
-            "reference" : "Organization/2"
-        },
-        "class" : {"type" : {
-                "coding" : [{
-    "system" : "http://terminology.hl7.org/CodeSystem/coverage-class",
-                         "code" : "plan"
-                  }]
-                },
-                "value" : {
-                      "value" : "5000374"
-                },
-        },
-    }
+  }
+]
