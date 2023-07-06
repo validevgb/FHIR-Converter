@@ -93,8 +93,7 @@ def submit():
 window = tk.Tk()
 window.title("Patientendaten")
 
-fetch_button = tk.Button(window, text="Patient abrufen", command=fetch)
-fetch_button.pack()
+
 # ID
 id_label = tk.Label(window, text="ID:")
 id_label.pack()
@@ -102,6 +101,8 @@ id_wert=tk.StringVar()
 id_entry = tk.Entry(window, textvariable=id_wert)
 id_entry.pack()
 
+fetch_button = tk.Button(window, text="Patient abrufen", command=fetch)
+fetch_button.pack()
 # Name
 name_label = tk.Label(window, text="Name:")
 name_label.pack()
@@ -152,10 +153,77 @@ verheiratet_var = tk.BooleanVar()
 verheiratet_checkbox = tk.Checkbutton(window, text="Ja", variable=verheiratet_var)
 verheiratet_checkbox.pack()
 
+
+
+
+
+#ICD, OPS, SNOMED CT,LOINC
+codes_label = tk.Label(window, text="Fields for ICD, OPS, SNOMED and LOINC Codes (2 Diagnosis max.)")
+codes_label.pack()
+# Create the left column
+left_frame = tk.Frame(window)
+left_frame.pack(side=tk.LEFT)
+
+icd1_label = tk.Label(left_frame, text="ICD1")
+icd1_label.pack()
+icd1_var = tk.StringVar()
+icd1_entry = tk.Entry(left_frame, textvariable=icd1_var)
+icd1_entry.pack()
+
+ops1_label = tk.Label(left_frame, text="OPS1")
+ops1_label.pack()
+ops1_var = tk.StringVar()
+ops1_entry = tk.Entry(left_frame, textvariable=ops1_var)
+ops1_entry.pack()
+
+snomed1_label = tk.Label(left_frame, text="SNOMED1")
+snomed1_label.pack()
+snomed1_var = tk.StringVar()
+snomed1_entry = tk.Entry(left_frame, textvariable=snomed1_var)
+snomed1_entry.pack()
+
+loinc1_label = tk.Label(left_frame, text="LOINC1")
+loinc1_label.pack()
+loinc1_var = tk.StringVar()
+loinc1_entry = tk.Entry(left_frame, textvariable=loinc1_var)
+loinc1_entry.pack()
+
+# Create the right column
+right_frame = tk.Frame(window)
+right_frame.pack(side=tk.RIGHT)
+
+icd2_label = tk.Label(right_frame, text="ICD2")
+icd2_label.pack()
+icd2_var = tk.StringVar()
+icd2_entry = tk.Entry(right_frame, textvariable=icd2_var)
+icd2_entry.pack()
+
+ops2_label = tk.Label(right_frame, text="OPS2")
+ops2_label.pack()
+ops2_var = tk.StringVar()
+ops2_entry = tk.Entry(right_frame, textvariable=ops2_var)
+ops2_entry.pack()
+
+snomed2_label = tk.Label(right_frame, text="SNOMED2")
+snomed2_label.pack()
+snomed2_var = tk.StringVar()
+snomed2_entry = tk.Entry(right_frame, textvariable=snomed2_var)
+snomed2_entry.pack()
+
+loinc2_label = tk.Label(right_frame, text="LOINC2")
+loinc2_label.pack()
+loinc2_var = tk.StringVar()
+loinc2_entry = tk.Entry(right_frame, textvariable=loinc2_var)
+loinc2_entry.pack()
+
+# Create the bottom row
+bottom_frame = tk.Frame(window)
+bottom_frame.pack(side=tk.BOTTOM)
+
 submit_button = tk.Button(window, text="Submit", command=submit)
-submit_button.pack()
+submit_button.pack(side=tk.LEFT)
 
 update_button = tk.Button(window, text="Update", command=update)
-update_button.pack()
+update_button.pack(side=tk.LEFT)
 
 window.mainloop()
